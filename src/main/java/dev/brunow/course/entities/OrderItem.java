@@ -3,6 +3,8 @@ package dev.brunow.course.entities;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import dev.brunow.course.entities.pk.OrderItemPK;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -17,7 +19,8 @@ public class OrderItem implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@EmbeddedId
-	private OrderItemPK id;
+	private OrderItemPK id = new OrderItemPK();
+	
 	private Integer quantity;
 	private Double price;
 	
@@ -27,12 +30,13 @@ public class OrderItem implements Serializable{
 
 	public OrderItem(Order order, Product product, Integer quantity, Double price) {
 		super();
-		id.setOrder(order);
-		id.setProduct(product);
+		this.id.setOrder(order);
+		this.id.setProduct(product);
 		this.quantity = quantity;
 		this.price = price;
 		
 	}
+	@JsonIgnore
 	public Order getOrder() {
 		return id.getOrder();
 	}
