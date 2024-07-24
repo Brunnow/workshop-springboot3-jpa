@@ -1,6 +1,7 @@
 package dev.brunow.course.entities.pk;
 
 import java.io.Serializable;
+
 import java.util.Objects;
 
 import dev.brunow.course.entities.Order;

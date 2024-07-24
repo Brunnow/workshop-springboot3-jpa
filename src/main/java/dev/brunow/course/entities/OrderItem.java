@@ -14,8 +14,6 @@ import jakarta.persistence.Table;
 @Table(name = "tb_order_item")
 public class OrderItem implements Serializable{
 	
-
-	
 	private static final long serialVersionUID = 1L;
 	
 	@EmbeddedId
@@ -28,10 +26,10 @@ public class OrderItem implements Serializable{
 		
 	}
 
-	public OrderItem(Order order, Product product, Integer quantity, Double price) {
+	public OrderItem( Order order, Product product, Integer quantity, Double price) {
 		super();
-		this.id.setOrder(order);
-		this.id.setProduct(product);
+		id.setOrder(order);
+		id.setProduct(product);
 		this.quantity = quantity;
 		this.price = price;
 		
